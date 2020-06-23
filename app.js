@@ -51,12 +51,17 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log(random)
   let current = theTetrominoes[random][currentPosition]
 
-  // Draw the first rotation in the first tetromino
+  // Draw the tetromino
   function draw () {
     current.forEach(index => {
       squares[currentPosition + index].classList.add('tetromino')
     })
   }
 
-  draw()
+  // Undraw the tetromino
+  function unDraw () {
+    current.forEach(index => {
+      squares[currentPosition + index].classList.remove('tetromino')
+    })
+  }
 })
