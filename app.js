@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ]
 
   // Display the shape the shape in the mini-grid display
-  function diplayShape () {
+  function displayShape () {
     // Remove any trace of a tetromino from the entire grid
     displaySquares.forEach(square => {
       square.classList.remove('tetromino')
