@@ -1,3 +1,6 @@
+.container {
+  display: flex;
+}
 .grid {
   background-color: yellow;
   display: flex;
