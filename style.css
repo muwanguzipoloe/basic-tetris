@@ -20,7 +20,7 @@
 
 .mini-grid {
   background-color: yellow;
-  display: : flex;
+  display: flex;
   flex-wrap: wrap;
   height: 80px;
   margin-left: 50px;

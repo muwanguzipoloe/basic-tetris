@@ -138,4 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
     current = theTetrominoes[random][currentRotation]
     draw()
   }
+
+  // Show up-next tetromino in mini-grid display
+  const displaySquares = document.querySelectorAll('.mini-grid div')
 })
