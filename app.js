@@ -7,6 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
   let nextRandom = 0
   let timerId
   let score = 0
+  const colors = [
+    'orange',
+    'red',
+    'purple',
+    'green',
+    'blue'
+  ]
 
   // The Tetrominoes
   const lTetromino = [
@@ -58,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function draw () {
     current.forEach(index => {
       squares[currentPosition + index].classList.add('tetromino')
+      squares[currentPosition + index].style.backgroundColor = colors[random]
     })
   }
 
@@ -65,14 +73,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function undraw () {
     current.forEach(index => {
       squares[currentPosition + index].classList.remove('tetromino')
+      squares[currentPosition + index].style.backgroundColor = ''
     })
   }
 
-  // Make the tetromino move down every second
-  // timerId = setInterval(moveDown, 1000)
-
   // Assign functions to keyCodes (these can be found on keycode.com)
-
   function control (e) {
     if (e.keyCode === 37) {
       moveLeft()
@@ -149,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Show up-next tetromino in mini-grid display
   const displaySquares = document.querySelectorAll('.mini-grid div')
   const displayWidth = 4
-  let displayIndex = 0
+  const displayIndex = 0
 
   // An array of The Tetrominoes without rotation
   const upNextTetrominoes = [
@@ -165,9 +170,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Remove any trace of a tetromino from the entire grid
     displaySquares.forEach(square => {
       square.classList.remove('tetromino')
+      square.style.backgroundColor = ''
     })
-    upNextTetrominoes[nextRandom].forEach( index => {
+    upNextTetrominoes[nextRandom].forEach(index => {
       displaySquares[displayIndex + index].classList.add('tetromino')
+      displaySquares[displayIndex + index].style.backgroundColor = colors[nextRandom]
     })
   }
 
@@ -195,6 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
         row.forEach(index => {
           squares[index].classList.remove('taken')
           squares[index].classList.remove('tetromino')
+          squares[index].style.backgroundColor = ''
         })
         const squaresRemoved = squares.splice(i, width)
         squares = squaresRemoved.concat(squares)
