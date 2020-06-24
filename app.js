@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const theTetrominoes = [lTetromino, zTetromino, tTetromino, oTetromino, iTetromino]
 
-  // let currentPosition = 4
+  let currentRotation = 0
   let currentPosition = 0
 
   // Randomly select a tetromino and its first rotation
@@ -87,4 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
       draw()
     }
   }
+
+  // freeze()
+  // move the tetromino left, unless is at the edge or there is a blockage
+
 })
